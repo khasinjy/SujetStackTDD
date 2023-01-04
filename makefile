@@ -17,3 +17,4 @@ test:
 clean:
 	rm -rf build/*
 	rm -rf tests/*
+	rm ./$(EXEC)
