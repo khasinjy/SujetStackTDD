@@ -1,79 +1,79 @@
 #include <gtest/gtest.h>
 #include "MyStack.h"
 
-TEST(MyStackSuite, frontStackAWithMultipleElements){
+TEST(frontStackA, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     ASSERT_EQ(1, mystack.front_a());
 }
 
-TEST(MyStackSuite, frontStackAWithOneElement){
+TEST(frontStackA, withOneElement){
     MyStack mystack;
     mystack.setStackA({1});
     ASSERT_EQ(1, mystack.front_a());
 }
 
-TEST(MyStackSuite, frontStackAWithNoneElement){
+TEST(frontStackA, withNoneElement){
     MyStack mystack;
     mystack.setStackA({});
     EXPECT_THROW(mystack.front_a(), EmptyStackException);
 }
 
-TEST(MyStackSuite, frontStackBWithMultipleElements){
+TEST(frontStackB, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     ASSERT_EQ(1, mystack.front_b());
 }
 
-TEST(MyStackSuite, frontStackBWithOneElement){
+TEST(frontStackB, withOneElement){
     MyStack mystack;
     mystack.setStackB({1});
     ASSERT_EQ(1, mystack.front_b());
 }
 
-TEST(MyStackSuite, frontStackBWithNoneElement){
+TEST(frontStackB, withNoneElement){
     MyStack mystack;
     mystack.setStackB({});
     EXPECT_THROW(mystack.front_b(), EmptyStackException);
 }
 
-TEST(MyStackSuite, backStackAWithMultipleElements){
+TEST(backStackA, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     ASSERT_EQ(5, mystack.back_a());
 }
 
-TEST(MyStackSuite, backStackAWithOneElement){
+TEST(backStackA, withOneElement){
     MyStack mystack;
     mystack.setStackA({1});
     ASSERT_EQ(1, mystack.back_a());
 }
 
-TEST(MyStackSuite, backStackAWithNoneElement){
+TEST(backStackA, withNoneElement){
     MyStack mystack;
     mystack.setStackA({});
     EXPECT_THROW(mystack.back_a(), EmptyStackException);
 }
 
-TEST(MyStackSuite, backStackBWithMultipleElements){
+TEST(backStackB, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     ASSERT_EQ(5, mystack.back_b());
 }
 
-TEST(MyStackSuite, backStackBWithOneElement){
+TEST(backStackB, withOneElement){
     MyStack mystack;
     mystack.setStackB({1});
     ASSERT_EQ(1, mystack.back_b());
 }
 
-TEST(MyStackSuite, backStackBWithNoneElement){
+TEST(backStackB, withNoneElement){
     MyStack mystack;
     mystack.setStackB({});
     EXPECT_THROW(mystack.back_b(), EmptyStackException);
 }
 
-TEST(MyStackSuite, saWithMultipleElements){
+TEST(sa, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.sa();
@@ -81,7 +81,7 @@ TEST(MyStackSuite, saWithMultipleElements){
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
-TEST(MyStackSuite, saWithOneElement){
+TEST(sa, withOneElement){
     MyStack mystack;
     mystack.setStackA({2});
     mystack.sa();
@@ -89,13 +89,13 @@ TEST(MyStackSuite, saWithOneElement){
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
-TEST(MyStackSuite, saWithNoneElement){
+TEST(sa, withNoneElement){
     MyStack mystack;
     mystack.setStackA({});
     EXPECT_THROW(mystack.sa(), EmptyStackException);
 }
 
-TEST(MyStackSuite, sbWithMultipleElements){
+TEST(sb, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.sb();
@@ -103,7 +103,7 @@ TEST(MyStackSuite, sbWithMultipleElements){
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
-TEST(MyStackSuite, sbWithOneElement){
+TEST(sb, withOneElement){
     MyStack mystack;
     mystack.setStackB({2});
     mystack.sb();
@@ -111,13 +111,13 @@ TEST(MyStackSuite, sbWithOneElement){
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
-TEST(MyStackSuite, sbWithNoneElement){
+TEST(sb, withNoneElement){
     MyStack mystack;
     mystack.setStackB({});
     EXPECT_THROW(mystack.sb(), EmptyStackException);
 }
 
-TEST(MyStackSuite, paWithMultipleElements){
+TEST(pa, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.setStackB({6, 7, 8, 9, 10});
@@ -128,7 +128,7 @@ TEST(MyStackSuite, paWithMultipleElements){
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
 
-TEST(MyStackSuite, paWithMultipleElementsStackAandEmptyStackB){
+TEST(pa, withMultipleElementsStackAandEmptyStackB){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.setStackB({});
@@ -139,7 +139,7 @@ TEST(MyStackSuite, paWithMultipleElementsStackAandEmptyStackB){
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
 
-TEST(MyStackSuite, paWithOneElementStackAandEmptyStackB){
+TEST(pa, withOneElementStackAandEmptyStackB){
     MyStack mystack;
     mystack.setStackA({1});
     mystack.setStackB({});
@@ -150,13 +150,13 @@ TEST(MyStackSuite, paWithOneElementStackAandEmptyStackB){
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
 
-TEST(MyStackSuite, paWithEmptyStackA){
+TEST(pa, withEmptyStackA){
     MyStack mystack;
     mystack.setStackA({});
     EXPECT_THROW(mystack.pa(), EmptyStackException);
 }
 
-TEST(MyStackSuite, pbWithMultipleElements){
+TEST(pb, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({6, 7, 8, 9, 10});
     mystack.setStackB({1, 2, 3, 4, 5});
@@ -167,7 +167,7 @@ TEST(MyStackSuite, pbWithMultipleElements){
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
 
-TEST(MyStackSuite, pbWithMultipleElementsStackBandEmptyStackA){
+TEST(pb, withMultipleElementsStackBandEmptyStackA){
     MyStack mystack;
     mystack.setStackA({});
     mystack.setStackB({1, 2, 3, 4, 5});
@@ -178,7 +178,7 @@ TEST(MyStackSuite, pbWithMultipleElementsStackBandEmptyStackA){
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
 
-TEST(MyStackSuite, pbWithOneElementStackBandEmptyStackA){
+TEST(pb, withOneElementStackBandEmptyStackA){
     MyStack mystack;
     mystack.setStackA({});
     mystack.setStackB({1});
@@ -189,13 +189,13 @@ TEST(MyStackSuite, pbWithOneElementStackBandEmptyStackA){
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
 
-TEST(MyStackSuite, pbWithEmptyStackB){
+TEST(pb, withEmptyStackB){
     MyStack mystack;
     mystack.setStackB({});
     EXPECT_THROW(mystack.pb(), EmptyStackException);
 }
 
-TEST(MyStackSuite, raWithMultipleElements){
+TEST(ra, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.ra();
@@ -203,19 +203,19 @@ TEST(MyStackSuite, raWithMultipleElements){
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
-TEST(MyStackSuite, raWithOneElement){
+TEST(ra, withOneElement){
     MyStack mystack;
     mystack.setStackA({1});
     EXPECT_THROW(mystack.ra(), LackStackElementException);
 }
 
-TEST(MyStackSuite, raWithNoneElement){
+TEST(ra, withNoneElement){
     MyStack mystack;
     mystack.setStackA({});
     EXPECT_THROW(mystack.ra(), EmptyStackException);
 }
 
-TEST(MyStackSuite, rbWithMultipleElements){
+TEST(rb, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.rb();
@@ -223,19 +223,19 @@ TEST(MyStackSuite, rbWithMultipleElements){
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
-TEST(MyStackSuite, rbWithOneElement){
+TEST(rb, withOneElement){
     MyStack mystack;
     mystack.setStackB({1});
     EXPECT_THROW(mystack.rb(), LackStackElementException);
 }
 
-TEST(MyStackSuite, rbWithNoneElement){
+TEST(rb, withNoneElement){
     MyStack mystack;
     mystack.setStackB({});
     EXPECT_THROW(mystack.rb(), EmptyStackException);
 }
 
-TEST(MyStackSuite, rraWithMultipleElements){
+TEST(rra, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.rra();
@@ -243,19 +243,19 @@ TEST(MyStackSuite, rraWithMultipleElements){
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
-TEST(MyStackSuite, rraWithOneElement){
+TEST(rra, withOneElement){
     MyStack mystack;
     mystack.setStackA({1});
     EXPECT_THROW(mystack.rra(), LackStackElementException);
 }
 
-TEST(MyStackSuite, rraWithNoneElement){
+TEST(rra, withNoneElement){
     MyStack mystack;
     mystack.setStackA({});
     EXPECT_THROW(mystack.rra(), EmptyStackException);
 }
 
-TEST(MyStackSuite, rrbWithMultipleElements){
+TEST(rrb, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.rrb();
@@ -263,13 +263,13 @@ TEST(MyStackSuite, rrbWithMultipleElements){
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
-TEST(MyStackSuite, rrbWithOneElement){
+TEST(rrb, withOneElement){
     MyStack mystack;
     mystack.setStackB({1});
     EXPECT_THROW(mystack.rrb(), LackStackElementException);
 }
 
-TEST(MyStackSuite, rrbWithNoneElement){
+TEST(rrb, withNoneElement){
     MyStack mystack;
     mystack.setStackB({});
     EXPECT_THROW(mystack.rrb(), EmptyStackException);
