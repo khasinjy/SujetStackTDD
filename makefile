@@ -17,4 +17,4 @@ test:
 clean:
 	rm -rf build/*
 	rm -rf tests/*
-	rm ./$(EXEC)
+	@if [  -f "./$(EXEC)" ]; then rm ./$(EXEC); fi;
