@@ -77,7 +77,7 @@ TEST(sa, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.sa();
-    list<int> expected = {2, 1, 3, 4, 5};
+    vector<int> expected = {2, 1, 3, 4, 5};
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
@@ -85,7 +85,7 @@ TEST(sa, withOneElement){
     MyStack mystack;
     mystack.setStackA({2});
     mystack.sa();
-    list<int> expected = {2};
+    vector<int> expected = {2};
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
@@ -99,7 +99,7 @@ TEST(sb, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.sb();
-    list<int> expected = {2, 1, 3, 4, 5};
+    vector<int> expected = {2, 1, 3, 4, 5};
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
@@ -107,7 +107,7 @@ TEST(sb, withOneElement){
     MyStack mystack;
     mystack.setStackB({2});
     mystack.sb();
-    list<int> expected = {2};
+    vector<int> expected = {2};
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
@@ -122,8 +122,8 @@ TEST(pa, withMultipleElements){
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.setStackB({6, 7, 8, 9, 10});
     mystack.pa();
-    list<int> expectedA = {2, 3, 4, 5};
-    list<int> expectedB = {1, 6, 7, 8, 9, 10};
+    vector<int> expectedA = {2, 3, 4, 5};
+    vector<int> expectedB = {1, 6, 7, 8, 9, 10};
     ASSERT_EQ(expectedA, mystack.getStackA());
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
@@ -133,8 +133,8 @@ TEST(pa, withMultipleElementsStackAandEmptyStackB){
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.setStackB({});
     mystack.pa();
-    list<int> expectedA = {2, 3, 4, 5};
-    list<int> expectedB = {1};
+    vector<int> expectedA = {2, 3, 4, 5};
+    vector<int> expectedB = {1};
     ASSERT_EQ(expectedA, mystack.getStackA());
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
@@ -144,8 +144,8 @@ TEST(pa, withOneElementStackAandEmptyStackB){
     mystack.setStackA({1});
     mystack.setStackB({});
     mystack.pa();
-    list<int> expectedA = {};
-    list<int> expectedB = {1};
+    vector<int> expectedA = {};
+    vector<int> expectedB = {1};
     ASSERT_EQ(expectedA, mystack.getStackA());
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
@@ -161,8 +161,8 @@ TEST(pb, withMultipleElements){
     mystack.setStackA({6, 7, 8, 9, 10});
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.pb();
-    list<int> expectedB = {2, 3, 4, 5};
-    list<int> expectedA = {1, 6, 7, 8, 9, 10};
+    vector<int> expectedB = {2, 3, 4, 5};
+    vector<int> expectedA = {1, 6, 7, 8, 9, 10};
     ASSERT_EQ(expectedA, mystack.getStackA());
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
@@ -172,8 +172,8 @@ TEST(pb, withMultipleElementsStackBandEmptyStackA){
     mystack.setStackA({});
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.pb();
-    list<int> expectedB = {2, 3, 4, 5};
-    list<int> expectedA = {1};
+    vector<int> expectedB = {2, 3, 4, 5};
+    vector<int> expectedA = {1};
     ASSERT_EQ(expectedA, mystack.getStackA());
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
@@ -183,8 +183,8 @@ TEST(pb, withOneElementStackBandEmptyStackA){
     mystack.setStackA({});
     mystack.setStackB({1});
     mystack.pb();
-    list<int> expectedB = {};
-    list<int> expectedA = {1};
+    vector<int> expectedB = {};
+    vector<int> expectedA = {1};
     ASSERT_EQ(expectedA, mystack.getStackA());
     ASSERT_EQ(expectedB, mystack.getStackB());
 }
@@ -199,7 +199,7 @@ TEST(ra, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.ra();
-    list<int> expected = {2, 3, 4, 5, 1};
+    vector<int> expected = {2, 3, 4, 5, 1};
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
@@ -219,7 +219,7 @@ TEST(rb, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.rb();
-    list<int> expected = {2, 3, 4, 5, 1};
+    vector<int> expected = {2, 3, 4, 5, 1};
     ASSERT_EQ(expected, mystack.getStackB());
 }
 
@@ -239,7 +239,7 @@ TEST(rra, withMultipleElements){
     MyStack mystack;
     mystack.setStackA({1, 2, 3, 4, 5});
     mystack.rra();
-    list<int> expected = {5, 1, 2, 3, 4};
+    vector<int> expected = {5, 1, 2, 3, 4};
     ASSERT_EQ(expected, mystack.getStackA());
 }
 
@@ -259,7 +259,7 @@ TEST(rrb, withMultipleElements){
     MyStack mystack;
     mystack.setStackB({1, 2, 3, 4, 5});
     mystack.rrb();
-    list<int> expected = {5, 1, 2, 3, 4};
+    vector<int> expected = {5, 1, 2, 3, 4};
     ASSERT_EQ(expected, mystack.getStackB());
 }
 

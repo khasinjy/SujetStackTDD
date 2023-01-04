@@ -1,8 +1,9 @@
 #ifndef __MYSTACK_H__
 #define __MYSTACK_H__
 
-#include <list>
+#include <vector>
 #include <algorithm>
+
 #include "EmptyStackException.h"
 #include "LackStackElementException.h"
 
@@ -10,20 +11,20 @@ using namespace std;
 
 class MyStack {
 	private:
-		list<int> stack_a;
-		list<int> stack_b;
-		int internal_front(list<int>& stack);
-		int internal_back(list<int>& stack);
-		void internal_s(list<int>& stack);
-		void internal_p(list<int>& stackSource, list<int>& stackTarget);
-		void internal_r(list<int>& stack);
-		void internal_rr(list<int>& stack);
+		vector<int> stack_a;
+		vector<int> stack_b;
+		int internal_front(vector<int>& stack);
+		int internal_back(vector<int>& stack);
+		void internal_s(vector<int>& stack);
+		void internal_p(vector<int>& stackSource, vector<int>& stackTarget);
+		void internal_r(vector<int>& stack);
+		void internal_rr(vector<int>& stack);
 	public:
 		MyStack();
-        list<int> getStackA();
-        list<int> getStackB();
-        void setStackA(list<int> stackA);
-        void setStackB(list<int> stackB);
+        vector<int> getStackA();
+        vector<int> getStackB();
+        void setStackA(vector<int> stackA);
+        void setStackB(vector<int> stackB);
 		int front_a();
 		int front_b();
 		int back_a();

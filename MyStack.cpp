@@ -5,23 +5,23 @@ MyStack::MyStack(){
     stack_b = {};
 }
 
-list<int> MyStack::getStackA(){
+vector<int> MyStack::getStackA(){
     return stack_a;
 }
 
-list<int> MyStack::getStackB(){
+vector<int> MyStack::getStackB(){
     return stack_b;
 }
 
-void MyStack::setStackA(list<int> stackA){
+void MyStack::setStackA(vector<int> stackA){
     stack_a = stackA;
 }
 
-void MyStack::setStackB(list<int> stackB){
+void MyStack::setStackB(vector<int> stackB){
     stack_b = stackB;
 }
 
-int MyStack::internal_front(list<int>& stack){
+int MyStack::internal_front(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     return stack.front();
 }
@@ -34,7 +34,7 @@ int MyStack::front_b(){
     return internal_front(stack_b);
 }
 
-int MyStack::internal_back(list<int>& stack){
+int MyStack::internal_back(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     return stack.back();
 }
@@ -47,7 +47,7 @@ int MyStack::back_b(){
     return internal_back(stack_b);
 }
 
-void MyStack::internal_s(list<int>& stack){
+void MyStack::internal_s(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     if(stack.size() == 1) return;
     auto firstIt = stack.begin();
@@ -63,11 +63,11 @@ void MyStack::sb(){
     internal_s(stack_b);
 }
 
-void MyStack::internal_p(list<int>& stackSource, list<int>& stackTarget){
+void MyStack::internal_p(vector<int>& stackSource, vector<int>& stackTarget){
     if(stackSource.empty()) throw EmptyStackException();
     int first = stackSource.front();
-    stackSource.pop_front();
-    stackTarget.push_front(first);
+    stackSource.erase(stackSource.begin());
+    stackTarget.insert(stackTarget.begin(), first);
 }
 
 void MyStack::pa(){
@@ -78,11 +78,11 @@ void MyStack::pb(){
     internal_p(stack_b, stack_a);
 }
 
-void MyStack::internal_r(list<int>& stack){
+void MyStack::internal_r(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     if(stack.size() == 1) throw LackStackElementException();
     int element = stack.front();
-    stack.pop_front();
+    stack.erase(stack.begin());
     stack.push_back(element);
 }
 
@@ -94,12 +94,12 @@ void MyStack::rb(){
     internal_r(stack_b);
 }
 
-void MyStack::internal_rr(list<int>& stack){
+void MyStack::internal_rr(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     if(stack.size() == 1) throw LackStackElementException();
     int element = stack.back();
     stack.pop_back();
-    stack.push_front(element);
+    stack.insert(stack.begin() ,element);
 }
 
 void MyStack::rra(){
