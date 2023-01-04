@@ -1,20 +1,18 @@
 EXEC=MyStackTest.out
+SRC=$(wildcard *.cpp)
+OBJ=$(SRC:.cpp=.o)
 
 all: clean compile test
 
-compile: MyStack.o MyStackTest.o 
+compile: $(OBJ)
 	g++ -o $(EXEC) build/*.o -lgtest -lpthread
 
-MyStackTest.o: MyStackTest.cpp
-	g++ -o build/MyStackTest.o -c MyStackTest.cpp
-
-MyStack.o: MyStack.cpp
-	g++ -o build/MyStack.o -c MyStack.cpp
+%.o : %.cpp
+	g++ -o build/$@ -c $<
 
 test:
 	./$(EXEC)
 
 clean:
 	rm -rf build/*
-	rm -rf tests/*
 	@if [  -f "./$(EXEC)" ]; then rm ./$(EXEC); fi;
