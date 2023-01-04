@@ -21,84 +21,91 @@ void MyStack::setStackB(list<int> stackB){
     stack_b = stackB;
 }
 
+int MyStack::internal_front(list<int>& stack){
+    if(stack.empty()) throw EmptyStackException();
+    return stack.front();
+}
+
 int MyStack::front_a(){
-    if(stack_a.empty()) throw EmptyStackException();
-    return stack_a.front();
+    return internal_front(stack_a);
 }
 
 int MyStack::front_b(){
-    if(stack_b.empty()) throw EmptyStackException();
-    return stack_b.front();
+    return internal_front(stack_b);
+}
+
+int MyStack::internal_back(list<int>& stack){
+    if(stack.empty()) throw EmptyStackException();
+    return stack.back();
 }
 
 int MyStack::back_a(){
-    if(stack_a.empty()) throw EmptyStackException();
-    return stack_a.back();
+    return internal_back(stack_a);
 }
 
 int MyStack::back_b(){
-    if(stack_b.empty()) throw EmptyStackException();
-    return stack_b.back();
+    return internal_back(stack_b);
+}
+
+void MyStack::internal_s(list<int>& stack){
+    if(stack.empty()) throw EmptyStackException();
+    if(stack.size() == 1) return;
+    auto firstIt = stack.begin();
+    auto secondIt = next(firstIt, 1);
+    iter_swap(firstIt, secondIt);
 }
 
 void MyStack::sa(){
-    if(stack_a.empty()) throw EmptyStackException();
-    if(stack_a.size() == 1) return;
-    auto firstIt = stack_a.begin();
-    auto secondIt = next(firstIt, 1);
-    iter_swap(firstIt, secondIt);
+    internal_s(stack_a);
 }
 
 void MyStack::sb(){
-    if(stack_b.empty()) throw EmptyStackException();
-    if(stack_b.size() == 1) return;
-    auto firstIt = stack_b.begin();
-    auto secondIt = next(firstIt, 1);
-    iter_swap(firstIt, secondIt);
+    internal_s(stack_b);
+}
+
+void MyStack::internal_p(list<int>& stackSource, list<int>& stackTarget){
+    if(stackSource.empty()) throw EmptyStackException();
+    int first = stackSource.front();
+    stackSource.pop_front();
+    stackTarget.push_front(first);
 }
 
 void MyStack::pa(){
-    if(stack_a.empty()) throw EmptyStackException();
-    int firstA = stack_a.front();
-    stack_a.pop_front();
-    stack_b.push_front(firstA);
+    internal_p(stack_a, stack_b);
 }
 
 void MyStack::pb(){
-    if(stack_b.empty()) throw EmptyStackException();
-    int firstB = stack_b.front();
-    stack_b.pop_front();
-    stack_a.push_front(firstB);
+    internal_p(stack_b, stack_a);
+}
+
+void MyStack::internal_r(list<int>& stack){
+    if(stack.empty()) throw EmptyStackException();
+    if(stack.size() == 1) throw LackStackElementException();
+    int element = stack.front();
+    stack.pop_front();
+    stack.push_back(element);
 }
 
 void MyStack::ra(){
-    if(stack_a.empty()) throw EmptyStackException();
-    if(stack_a.size() == 1) throw LackStackElementException();
-    int element = stack_a.front();
-    stack_a.pop_front();
-    stack_a.push_back(element);
+    internal_r(stack_a);
 }
 
 void MyStack::rb(){
-    if(stack_b.empty()) throw EmptyStackException();
-    if(stack_b.size() == 1) throw LackStackElementException();
-    int element = stack_b.front();
-    stack_b.pop_front();
-    stack_b.push_back(element);
+    internal_r(stack_b);
+}
+
+void MyStack::internal_rr(list<int>& stack){
+    if(stack.empty()) throw EmptyStackException();
+    if(stack.size() == 1) throw LackStackElementException();
+    int element = stack.back();
+    stack.pop_back();
+    stack.push_front(element);
 }
 
 void MyStack::rra(){
-    if(stack_a.empty()) throw EmptyStackException();
-    if(stack_a.size() == 1) throw LackStackElementException();
-    int element = stack_a.back();
-    stack_a.pop_back();
-    stack_a.push_front(element);
+    internal_rr(stack_a);
 }
 
 void MyStack::rrb(){
-    if(stack_b.empty()) throw EmptyStackException();
-    if(stack_b.size() == 1) throw LackStackElementException();
-    int element = stack_b.back();
-    stack_b.pop_back();
-    stack_b.push_front(element);
+    internal_rr(stack_b);
 }

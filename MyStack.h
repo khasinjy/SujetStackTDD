@@ -12,6 +12,12 @@ class MyStack {
 	private:
 		list<int> stack_a;
 		list<int> stack_b;
+		int internal_front(list<int>& stack);
+		int internal_back(list<int>& stack);
+		void internal_s(list<int>& stack);
+		void internal_p(list<int>& stackSource, list<int>& stackTarget);
+		void internal_r(list<int>& stack);
+		void internal_rr(list<int>& stack);
 	public:
 		MyStack();
         list<int> getStackA();
