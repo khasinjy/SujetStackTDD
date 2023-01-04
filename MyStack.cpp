@@ -65,9 +65,8 @@ void MyStack::sb(){
 
 void MyStack::internal_p(vector<int>& stackSource, vector<int>& stackTarget){
     if(stackSource.empty()) throw EmptyStackException();
-    int first = stackSource.front();
+    stackTarget.insert(stackTarget.begin(), stackSource.front());
     stackSource.erase(stackSource.begin());
-    stackTarget.insert(stackTarget.begin(), first);
 }
 
 void MyStack::pa(){
@@ -81,9 +80,8 @@ void MyStack::pb(){
 void MyStack::internal_r(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     if(stack.size() == 1) throw LackStackElementException();
-    int element = stack.front();
+    stack.push_back(stack.front());
     stack.erase(stack.begin());
-    stack.push_back(element);
 }
 
 void MyStack::ra(){
@@ -97,9 +95,8 @@ void MyStack::rb(){
 void MyStack::internal_rr(vector<int>& stack){
     if(stack.empty()) throw EmptyStackException();
     if(stack.size() == 1) throw LackStackElementException();
-    int element = stack.back();
+    stack.insert(stack.begin(), stack.back());
     stack.pop_back();
-    stack.insert(stack.begin() ,element);
 }
 
 void MyStack::rra(){
