@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <list>
 #include "MyStack.h"
 
 using namespace std;
